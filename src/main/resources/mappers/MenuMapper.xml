@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.ordering.dao.MenuMapper">
+    <resultMap id="menuMap" type="com.example.ordering.module.Menu">
+        <id column="id" property="id" javaType="java.lang.String"></id>
+        <result column="name" property="name" javaType="java.lang.String"></result>
+        <result column="price" property="price" javaType="java.lang.Double"></result>
+        <result column="img" property="img" javaType="java.lang.String"></result>
+        <result column="showorder" property="showorder" javaType="java.lang.Integer"></result>
+        <collection property="options" ofType="com.example.ordering.module.Option">
+            <id column="optId" property="id" javaType="java.lang.String"></id>
+            <result column="optName" property="name" javaType="java.lang.String"></result>
+            <result column="optPrice" property="price" javaType="java.lang.Double"></result>
+            <result column="optShoworder" property="showorder" javaType="java.lang.Integer"></result>
+        </collection>
+    </resultMap>
+    <select id="selectMenu" resultMap="menuMap">
+        SELECT
+            menu.id,
+            menu. NAME,
+            menu.price,
+            menu.img,
+            menu.showorder,
+            opt.id optId,
+            opt.`name` optName,
+            opt.price optPrice,
+            opt.showorder optShoworder
+        FROM
+            t_menu menu
+        LEFT JOIN t_option opt ON menu.id = opt.menuId
+        ORDER BY
+            menu.showorder,
+            opt.showorder
+    </select>
+    <select id="selectUser" resultType="com.example.ordering.module.User">
+        select * from t_user where openId = #{openId}
+    </select>
+    <insert id="insertUser" parameterType="com.example.ordering.module.User">
+        insert into t_user
+        (id,openId,phoneNum,roleId,address) values 
+        (#{user.id},#{user.openId},#{user.phoneNum},#{user.roleId},#{user.address})
+    </insert>
+    <update id="updateUser" parameterType="com.example.ordering.module.User">
+        update t_user set phoneNum = #{user.phoneNum},address = #{user.address}
+        where id = #{user.id}
+    </update>
+</mapper>

@@ -1,0 +1,35 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.31.55:3306/ordering?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.example.ordering.module
+
+weixin:
+  appID: wxf497fd733f6689d6
+  appsecret: 2e30b1b20b8fc7eb222ddce7edcce89e
+  redirect: https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%sresponse_type=%s&scope=snsapi_base&state=123#wechat_redirect
+  openIdUrl: https://api.weixin.qq.com/sns/oauth2/access_token?appid=%s&secret=%s&code=%s&grant_type=authorization_code
+
+
+#最大连接数
+http:
+  maxTotal: 100
+  #并发数
+  defaultMaxPerRoute: 20
+  #创建连接的最长时间
+  connectTimeout: 1000
+  #从连接池中获取到连接的最长时间
+  connectionRequestTimeout: 500
+  #数据传输的最长时间
+  socketTimeout: 10000
+  #提交请求前测试连接是否可用
+  staleConnectionCheckEnabled: true
+  #可用空闲连接过期时间,重用空闲连接时会先检查是否空闲时间超过这个时间，如果超过，释放socket重新建立
+  validateAfterInactivity: 3000000

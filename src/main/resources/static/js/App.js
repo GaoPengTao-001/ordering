@@ -1,0 +1,1 @@
+var app = angular.module("orderingApp", ['service', 'constant', 'ionic']);
