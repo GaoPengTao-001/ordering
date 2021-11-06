@@ -17,7 +17,7 @@
 <ion-content>
     <ion-side-menus>
         <!-- 中间内容 -->
-        <ion-side-menu-content drag-content="false">
+        <ion-side-menu-content drag-content="true">
             <div class="row" ng-repeat="menu in menuList"
                  style="height:100px;font-size: 15px;border-bottom: 1px solid;margin-bottom: 10px;">
                 <div class="col col-20">
@@ -61,7 +61,7 @@
         <span style="font-family: 'MicrosoftYaHei';color: #ff5c3a;">￥{{selectOpt.price}}</span>
     </h1>
     <div class="buttons" ng-click="settlement()">
-        <button class="button">结算11</button>
+        <button class="button">结算</button>
     </div>
 </ion-footer-bar>
 </body>
