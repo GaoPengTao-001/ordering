@@ -10,37 +10,46 @@
 
 </head>
 <body ng-controller="clientCtrl">
-
 <ion-header-bar class="bar-positive" style="background-color: #f0f0f0;">
     <h2 ng-bind="appTitle" class="title"
         style="color: #3a3a3a;font-family: 'MicrosoftYaHei';text-align: center;"></h2>
 </ion-header-bar>
 <ion-content>
-    <div class="row" ng-repeat="menu in menuList"
-         style="height:100px;font-size: 15px;border-bottom: 1px solid;margin-bottom: 10px;">
-        <div class="col col-20">
-            <img ng-src="{{menu.img}}" height="80px;">
-        </div>
-        <div class="col col-40">
-            <div class="row">
-                <span ng-bind="menu.name" style="font-family: 'MicrosoftYaHei';color: #2a2a2a;"></span>
+    <ion-side-menus>
+        <!-- 中间内容 -->
+        <ion-side-menu-content drag-content="false">
+            <div class="row" ng-repeat="menu in menuList"
+                 style="height:100px;font-size: 15px;border-bottom: 1px solid;margin-bottom: 10px;">
+                <div class="col col-20">
+                    <img ng-src="{{menu.img}}" height="80px;">
+                </div>
+                <div class="col col-40">
+                    <div class="row">
+                        <span ng-bind="menu.name" style="font-family: 'MicrosoftYaHei';color: #2a2a2a;"></span>
+                    </div>
+                    <div class="row" style="margin-top: 30px;">
+                        <span style="font-family: 'MicrosoftYaHei';color: #ff5c3a;">￥</span>
+                        <span ng-bind="menu.price" style="font-family: 'MicrosoftYaHei';color: #ff5c3a;"></span>
+                    </div>
+                </div>
+                <div class="col col-40">
+                    <div style="width:80px;height:26px;background:#f2f2f2;padding:3px 0px;text-align: center;margin-top: 5px;">
+                        <i ng-click="removeMenu(menu)" ng-if="menu.num > 0" class="icon ion-minus"
+                           style="font-family: 'MicrosoftYaHei';color: #6a6a6a;"></i>
+                        <span ng-bind="menu.num" ng-if="menu.num > 0"
+                              style="font-family: 'MicrosoftYaHei';color: #6a6a6a;margin: 0 5px;"></span>
+                        <i ng-click="addMenu(menu)" class="icon ion-plus"
+                           style="font-family: 'MicrosoftYaHei';color: #6a6a6a;"></i>
+                    </div>
+                </div>
             </div>
-            <div class="row" style="margin-top: 30px;">
-                <span style="font-family: 'MicrosoftYaHei';color: #ff5c3a;">￥</span>
-                <span ng-bind="menu.price" style="font-family: 'MicrosoftYaHei';color: #ff5c3a;"></span>
-            </div>
-        </div>
-        <div class="col col-40">
-            <div style="width:80px;height:26px;background:#f2f2f2;padding:3px 0px;text-align: center;margin-top: 5px;">
-                <i ng-click="removeMenu(menu)" ng-if="menu.num > 0" class="icon ion-minus"
-                   style="font-family: 'MicrosoftYaHei';color: #6a6a6a;"></i>
-                <span ng-bind="menu.num" ng-if="menu.num > 0"
-                      style="font-family: 'MicrosoftYaHei';color: #6a6a6a;margin: 0 5px;"></span>
-                <i ng-click="addMenu(menu)" class="icon ion-plus"
-                   style="font-family: 'MicrosoftYaHei';color: #6a6a6a;"></i>
-            </div>
-        </div>
-    </div>
+        </ion-side-menu-content>
+
+        <!-- 右侧菜单 -->
+        <ion-side-menu side="right">
+            <div>我来了</div>
+        </ion-side-menu>
+    </ion-side-menus>
 </ion-content>
 <ion-footer-bar align-title="left" class="bar-positive" style="background-color: #f0f0f0;">
     <div class="buttons">
@@ -52,10 +61,9 @@
         <span style="font-family: 'MicrosoftYaHei';color: #ff5c3a;">￥{{selectOpt.price}}</span>
     </h1>
     <div class="buttons" ng-click="settlement()">
-        <button class="button">结算</button>
+        <button class="button">结算11</button>
     </div>
 </ion-footer-bar>
-
 </body>
 <script src="../../js/App.js"></script>
 <script src="../../js/util/config.js"></script>

@@ -1,6 +1,6 @@
 var appFactorys = angular.module('constant', [])
 appFactorys.factory('constant', function () {
-    var data = {};
+    let data = {};
     data.appTitle = '清凉一夏';
     return {
         getValue: function (param) {
