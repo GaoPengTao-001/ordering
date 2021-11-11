@@ -1,4 +1,4 @@
-app.controller("clientCtrl", function ($scope, service, constant, $ionicPopup) {
+app.controller("clientCtrl", function ($scope, service, constant, $ionicPopup,$ionicSideMenuDelegate) {
     $scope.message = "";
     $scope.appTitle = constant.getValue('appTitle');
     $scope.selectOpt = {'opts': [], 'price': 0};
@@ -93,6 +93,10 @@ app.controller("clientCtrl", function ($scope, service, constant, $ionicPopup) {
         }
         $scope.selectOpt.price = price
     }
+
+    $scope.toggleLeftSideMenu = function() {
+        $ionicSideMenuDelegate.toggleRight();
+    };
 
     // 下单页
     $scope.settlement = function () {

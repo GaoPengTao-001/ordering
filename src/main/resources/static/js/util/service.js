@@ -36,5 +36,5 @@ appFactorys.factory('service', function ($http, constant) {
                 data: code
             })
         },
-    };
-});
+    }
+})
