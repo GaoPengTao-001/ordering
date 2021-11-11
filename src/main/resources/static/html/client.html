@@ -15,39 +15,41 @@
         style="color: #3a3a3a;font-family: 'MicrosoftYaHei';text-align: center;"></h2>
 </ion-header-bar>
 <ion-content>
-    <ion-side-menus>
-        <!-- 中间内容 -->
-        <ion-side-menu-content drag-content="true">
-            <div class="row" ng-repeat="menu in menuList"
-                 style="height:100px;font-size: 15px;border-bottom: 1px solid;margin-bottom: 10px;">
-                <div class="col col-20">
-                    <img ng-src="{{menu.img}}" height="80px;">
-                </div>
-                <div class="col col-40">
-                    <div class="row">
-                        <span ng-bind="menu.name" style="font-family: 'MicrosoftYaHei';color: #2a2a2a;"></span>
-                    </div>
-                    <div class="row" style="margin-top: 30px;">
-                        <span style="font-family: 'MicrosoftYaHei';color: #ff5c3a;">￥</span>
-                        <span ng-bind="menu.price" style="font-family: 'MicrosoftYaHei';color: #ff5c3a;"></span>
-                    </div>
-                </div>
-                <div class="col col-40">
-                    <div style="width:80px;height:26px;background:#f2f2f2;padding:3px 0px;text-align: center;margin-top: 5px;">
-                        <i ng-click="removeMenu(menu)" ng-if="menu.num > 0" class="icon ion-minus"
-                           style="font-family: 'MicrosoftYaHei';color: #6a6a6a;"></i>
-                        <span ng-bind="menu.num" ng-if="menu.num > 0"
-                              style="font-family: 'MicrosoftYaHei';color: #6a6a6a;margin: 0 5px;"></span>
-                        <i ng-click="addMenu(menu)" class="icon ion-plus"
-                           style="font-family: 'MicrosoftYaHei';color: #6a6a6a;"></i>
-                    </div>
-                </div>
+    <!-- 中间内容 -->
+    <div class="row" ng-repeat="menu in menuList"
+         style="height:100px;font-size: 15px;border-bottom: 1px solid;margin-bottom: 10px;">
+        <div class="col col-20">
+            <img ng-src="{{menu.img}}" height="80px;">
+        </div>
+        <div class="col col-40">
+            <div class="row">
+                <span ng-bind="menu.name" style="font-family: 'MicrosoftYaHei';color: #2a2a2a;"></span>
             </div>
-            <button ng-click="toggleLeftSideMenu()">
-                切换左侧侧栏菜单
-            </button>
-        </ion-side-menu-content>
+            <div class="row" style="margin-top: 30px;">
+                <span style="font-family: 'MicrosoftYaHei';color: #ff5c3a;">￥</span>
+                <span ng-bind="menu.price" style="font-family: 'MicrosoftYaHei';color: #ff5c3a;"></span>
+            </div>
+        </div>
+        <div class="col col-40">
+            <div style="width:80px;height:26px;background:#f2f2f2;padding:3px 0px;text-align: center;margin-top: 5px;">
+                <i ng-click="removeMenu(menu)" ng-if="menu.num > 0" class="icon ion-minus"
+                   style="font-family: 'MicrosoftYaHei';color: #6a6a6a;"></i>
+                <span ng-bind="menu.num" ng-if="menu.num > 0"
+                      style="font-family: 'MicrosoftYaHei';color: #6a6a6a;margin: 0 5px;"></span>
+                <i ng-click="addMenu(menu)" class="icon ion-plus"
+                   style="font-family: 'MicrosoftYaHei';color: #6a6a6a;"></i>
+            </div>
+        </div>
+    </div>
 
+    <ion-side-menus>
+        <button ng-click="toggleLeftSideMenu()">
+            切换左侧侧栏菜单
+        </button>
+        <ion-side-menu-content drag-content="true">
+            哈哈哈
+
+        </ion-side-menu-content>
         <!-- 右侧菜单 -->
         <ion-side-menu side="right">
             <div>我来了</div>
